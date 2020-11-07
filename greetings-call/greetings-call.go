@@ -2,12 +2,21 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"greetings"
 )
 
 func main() {
+	// set log message prifix and don't need to disable any flags
+	log.SetPrefix("greetings: ")
+
 	// get the greeting message and print
-	message := greetings.Hello("Jay")
+	message, err := greetings.Hello("")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	// normal flow
 	fmt.Println(message)
 }
